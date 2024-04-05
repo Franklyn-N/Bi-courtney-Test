@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .flight {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .flight p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Schedule</h1>
+        <div id="flights"></div>
+    </div>
+
+    <script>
+        // Sample flight data
+        const flights = [
+            { flightNumber: "ABC123", departureTime: "10:00 AM", arrivalTime: "12:00 PM" },
+            { flightNumber: "XYZ456", departureTime: "2:00 PM", arrivalTime: "4:00 PM" },
+            { flightNumber: "DEF789", departureTime: "6:00 PM", arrivalTime: "8:00 PM" }
+        ];
+
+        // Function to display flights
+        function displayFlights() {
+            const flightsContainer = document.getElementById("flights");
+
+            flights.forEach(flight => {
+                const flightDiv = document.createElement("div");
+                flightDiv.classList.add("flight");
+
+                flightDiv.innerHTML = `
+                    <p><strong>Flight Number:</strong> ${flight.flightNumber}</p>
+                    <p><strong>Departure Time:</strong> ${flight.departureTime}</p>
+                    <p><strong>Arrival Time:</strong> ${flight.arrivalTime}</p>
+                `;
+
+                flightsContainer.appendChild(flightDiv);
+            });
+        }
+
+        // Display flights when the page loads
+        window.onload = displayFlights;
+    </script>
+</body>
+</html>
